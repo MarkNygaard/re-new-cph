@@ -1,9 +1,12 @@
 import { gql, GraphQLClient } from 'graphql-request';
 import PageSections from '../components/PageSections';
+import Navbar from '../components/Navbar';
 
 export default function Home({ page }) {
   return (
     <div>
+      <Navbar details={page} />
+
       {page.pageDetail.map((section) => (
         <PageSections details={section} key={section.id} />
       ))}
@@ -20,6 +23,7 @@ const query = gql`
       pageDetail {
         ... on HeaderRecord {
           __typename
+          navigationId
           bigTitle
           smallTitle
           description
@@ -29,6 +33,7 @@ const query = gql`
         }
         ... on TextImageRecord {
           __typename
+          navigationId
           smallTitle
           bigTitle
           description

@@ -2,7 +2,10 @@ import React from 'react';
 
 export default function HeaderRecord({ details }) {
   return (
-    <div className="bg-white-200 py-20 px-10 flex flex-col items-center">
+    <div
+      id={details.navigationId}
+      className="bg-white-200 py-20 px-10 flex flex-col items-center"
+    >
       <h1 className="text-7xl text-center text-gray-900 font-bold">
         {details.bigTitle}
         <span className="block text-gray-600 text-5xl mb-10 ">
