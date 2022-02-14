@@ -1,7 +1,7 @@
 import React from 'react';
 import TextImageRecord from './TextImageRecord';
 import HeaderRecord from './HeaderRecord';
-import LearnSectionRecord from './LearnSectionRecord';
+import ImageRecord from './ImageRecord';
 import PricingSectionRecord from './PricingSectionRecord';
 
 export default function CousesSection({ details }) {
@@ -9,8 +9,8 @@ export default function CousesSection({ details }) {
     return <HeaderRecord details={details} />;
   } else if (details.__typename === 'TextImageRecord') {
     return <TextImageRecord details={details} />;
-  } else if (details.__typename === 'LearnSectionRecord') {
-    return <LearnSectionRecord details={details} />;
+  } else if (details.__typename === 'ImageRecord') {
+    return <ImageRecord details={details} />;
   } else if (details.__typename === 'PricingSectionRecord') {
     return <PricingSectionRecord details={details} />;
   }

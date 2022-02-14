@@ -6,8 +6,8 @@ export default function Navbar(details) {
   const [isOpen, setIsOpen] = useState('false');
   return (
     <div>
-      <nav className="fixed top-0 z-50 w-full">
-        <div>
+      <nav className="fixed  w-full">
+        <div className="absolute z-10">
           <button
             onClick={() => setIsOpen(!isOpen)}
             type="button"
@@ -50,12 +50,12 @@ export default function Navbar(details) {
           </button>
         </div>
         <div className={isOpen ? 'hidden' : 'flex'}>
-          <div className="bg-gray-600 px-2 pt-2 pb-3 space-y-1 w-full">
+          <div className="bg-gray-100 px-3 pt-12 pb-3 space-y-1 w-48 h-screen shadow-2xl">
             {details.details.pageDetail.map((navigation) => {
               return navigation.navigationId ? (
                 <a
                   href={'#' + navigation.navigationId}
-                  className="text-white block py-2 px-4 text-sm hover:text-gray-800"
+                  className="text-gray-800 block py-2 px-2 text-sm hover:text-gray-600 font-bold"
                   details={navigation}
                   key={navigation.id}
                 >

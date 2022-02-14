@@ -46,6 +46,7 @@ const query = gql`
         }
         ... on PricingSectionRecord {
           __typename
+          navigationId
           title
           pricingCard {
             title
@@ -56,6 +57,15 @@ const query = gql`
             priceSuffix
             description
             featured
+          }
+        }
+        ... on ImageRecord {
+          __typename
+          imageTitle
+          image {
+            url
+            width
+            height
           }
         }
       }
