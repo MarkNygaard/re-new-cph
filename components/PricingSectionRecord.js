@@ -3,7 +3,7 @@ import PricingCard from '../components/PricingCard';
 
 export default function PricingSectionRecord({ details }) {
   return (
-    <div className="py-20 px-10 max-w-100">
+    <div id={details.navigationId} className="py-20 px-10 max-w-100">
       <h1 className="text-center text-8xl font-bold text-white mb-20">
         {details.title}
       </h1>

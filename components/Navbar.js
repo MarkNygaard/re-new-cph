@@ -3,12 +3,11 @@ import Link from 'next/link';
 import { useState } from 'react';
 
 export default function Navbar(details) {
-  const [isOpen, setIsOpen] = useState('none');
-  console.log({ details });
+  const [isOpen, setIsOpen] = useState('false');
   return (
     <div>
-      <nav className="flex items-center">
-        <div className="mr-10 flex">
+      <nav className="fixed top-0 z-50 w-full">
+        <div>
           <button
             onClick={() => setIsOpen(!isOpen)}
             type="button"
@@ -17,7 +16,7 @@ export default function Navbar(details) {
             <span className="sr-only">Open main menu</span>
             {!isOpen ? (
               <svg
-                className="block h-6 w-6"
+                className="block h-7 w-7"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
@@ -33,7 +32,7 @@ export default function Navbar(details) {
               </svg>
             ) : (
               <svg
-                className="block h-6 w-6"
+                className="block h-7 w-7"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
@@ -50,7 +49,7 @@ export default function Navbar(details) {
             )}
           </button>
         </div>
-        <div className="mobile-menu" display={isOpen}>
+        <div className={isOpen ? 'hidden' : 'flex'}>
           <div className="bg-gray-600 px-2 pt-2 pb-3 space-y-1 w-full">
             {details.details.pageDetail.map((navigation) => {
               return navigation.navigationId ? (
