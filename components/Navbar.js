@@ -6,7 +6,7 @@ export default function Navbar(details) {
   const [isOpen, setIsOpen] = useState('false');
   return (
     <div>
-      <nav className="fixed  w-full">
+      <nav className="fixed  w-full z-10">
         <div className="absolute z-10">
           <button
             onClick={() => setIsOpen(!isOpen)}
