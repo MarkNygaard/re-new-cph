@@ -1,3 +1,5 @@
+import Head from 'next/head';
+import renderMetaTags from 'react-datocms';
 import { gql, GraphQLClient } from 'graphql-request';
 import PageSections from '../components/PageSections';
 import Navbar from '../components/Navbar';
@@ -5,6 +7,7 @@ import Navbar from '../components/Navbar';
 export default function Home({ page }) {
   return (
     <div>
+      <Head>{renderMetaTags(page.seo)}</Head>
       <Navbar details={page} />
 
       {page.pageDetail.map((section) => (
@@ -19,6 +22,11 @@ const query = gql`
     page {
       id
       name
+      seo: _seoMetaTags {
+        attributes
+        content
+        tag
+      }
       pageDetail {
         ... on HeaderRecord {
           __typename
