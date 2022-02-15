@@ -13,7 +13,7 @@ export default function TextImageRecord({ details }) {
                 {details.bigTitle}
               </span>
             </h2>
-            <p className="text-gray-200 text-l max-w-lg">
+            <p className="text-gray-200 text-l max-w-lg whitespace-pre-wrap">
               {details.description}
             </p>
           </div>
@@ -47,7 +47,7 @@ export default function TextImageRecord({ details }) {
                 {details.bigTitle}
               </span>
             </h2>
-            <p className="text-gray-200 text-l max-w-lg">
+            <p className="text-gray-200 text-l max-w-lg whitespace-pre-wrap">
               {details.description}
             </p>
           </div>
