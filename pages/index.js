@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import renderMetaTags from 'react-datocms';
+import { renderMetaTags } from 'react-datocms';
 import { gql, GraphQLClient } from 'graphql-request';
 import PageSections from '../components/PageSections';
 import Navbar from '../components/Navbar';
