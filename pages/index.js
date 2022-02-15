@@ -19,7 +19,6 @@ const query = gql`
     page {
       id
       name
-      slug
       pageDetail {
         ... on HeaderRecord {
           __typename
@@ -50,13 +49,9 @@ const query = gql`
           title
           pricingCard {
             title
-            priceInCents
-            isFree
+            price
             buttonText
-            finePrint
-            priceSuffix
             description
-            featured
           }
         }
         ... on ImageRecord {
