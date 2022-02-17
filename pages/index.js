@@ -71,6 +71,13 @@ const query = gql`
             height
           }
         }
+        ... on TextRecord {
+          __typename
+          navigationId
+          content {
+            value
+          }
+        }
       }
     }
   }

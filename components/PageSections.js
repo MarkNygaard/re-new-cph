@@ -3,6 +3,7 @@ import TextImageRecord from './TextImageRecord';
 import HeaderRecord from './HeaderRecord';
 import ImageRecord from './ImageRecord';
 import PricingSectionRecord from './PricingSectionRecord';
+import TextRecord from './TextRecord';
 
 export default function CousesSection({ details }) {
   if (details.__typename === 'HeaderRecord') {
@@ -13,6 +14,8 @@ export default function CousesSection({ details }) {
     return <ImageRecord details={details} />;
   } else if (details.__typename === 'PricingSectionRecord') {
     return <PricingSectionRecord details={details} />;
+  } else if (details.__typename === 'TextRecord') {
+    return <TextRecord details={details} />;
   }
   return <></>;
 }
