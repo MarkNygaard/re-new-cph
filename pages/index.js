@@ -78,6 +78,14 @@ const query = gql`
             value
           }
         }
+        ... on YoutubeVideoRecord {
+          __typename
+          navigationId
+          id
+          link {
+            providerUid
+          }
+        }
       }
     }
   }
