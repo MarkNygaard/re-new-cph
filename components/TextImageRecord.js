@@ -1,23 +1,23 @@
-import React from 'react';
-import Image from 'next/image';
+import React from "react";
+import Image from "next/image";
 
 export default function TextImageRecord({ details }) {
-  if (details.imageLocation == 'RIGHT') {
+  if (details.imageLocation == "RIGHT") {
     return (
       <div id={details.navigationId} className="bg-gray-800 py-20 px-10">
-        <div className="flex flex-col max-w-6xl md:flex-row md:items-center mx-auto">
-          <div className="md:w-[60%] grow p-4">
-            <h2 className="text-4xl text-gray-200 font-bold">
+        <div className="mx-auto flex max-w-6xl flex-col md:flex-row md:items-center">
+          <div className="grow p-4 md:w-[60%]">
+            <h2 className="text-4xl font-bold text-gray-200">
               {details.smallTitle}
-              <span className="block text-yellow-200 text-6xl font-bold mb-10">
+              <span className="mb-10 block text-6xl font-bold text-yellow-200">
                 {details.bigTitle}
               </span>
             </h2>
-            <p className="text-gray-200 text-l max-w-lg whitespace-pre-wrap">
+            <p className="text-l max-w-lg whitespace-pre-wrap text-gray-200">
               {details.description}
             </p>
           </div>
-          <div className="grow p-4 object-center">
+          <div className="grow object-center p-4">
             <Image
               width={details.image.width}
               height={details.image.height}
@@ -31,8 +31,8 @@ export default function TextImageRecord({ details }) {
   } else {
     return (
       <div id={details.navigationId} className="bg-gray-800 py-20 px-10">
-        <div className="flex flex-col max-w-6xl md:flex-row md:items-center mx-auto">
-          <div className="grow p-4 object-center">
+        <div className="mx-auto flex max-w-6xl flex-col md:flex-row md:items-center">
+          <div className="grow object-center p-4">
             <Image
               width={details.image.width}
               height={details.image.height}
@@ -40,14 +40,14 @@ export default function TextImageRecord({ details }) {
               alt={details.littleTitle + details.bigTitle}
             />
           </div>
-          <div className="md:w-[60%] grow p-4">
-            <h2 className="text-4xl text-gray-200 font-bold">
+          <div className="grow p-4 md:w-[60%]">
+            <h2 className="text-4xl font-bold text-gray-200">
               {details.smallTitle}
-              <span className="block text-yellow-200 text-6xl font-bold mb-10">
+              <span className="mb-10 block text-6xl font-bold text-yellow-200">
                 {details.bigTitle}
               </span>
             </h2>
-            <p className="text-gray-200 text-l max-w-lg whitespace-pre-wrap">
+            <p className="text-l max-w-lg whitespace-pre-wrap text-gray-200">
               {details.description}
             </p>
           </div>

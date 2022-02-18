@@ -1,12 +1,12 @@
-import React from 'react';
-import Link from 'next/link';
-import { useState } from 'react';
+import React from "react";
+import Link from "next/link";
+import { useState } from "react";
 
 export default function Navbar(details) {
-  const [isOpen, setIsOpen] = useState('false');
+  const [isOpen, setIsOpen] = useState("false");
   return (
     <div>
-      <nav className="fixed  w-full z-10">
+      <nav className="fixed  z-10 w-full">
         <div className="absolute z-10">
           <button
             onClick={() => setIsOpen(!isOpen)}
@@ -49,13 +49,13 @@ export default function Navbar(details) {
             )}
           </button>
         </div>
-        <div className={isOpen ? 'hidden' : 'flex'}>
-          <div className="bg-gray-100 px-3 pt-12 pb-3 space-y-1 w-48 h-screen shadow-2xl">
+        <div className={isOpen ? "hidden" : "flex"}>
+          <div className="h-screen w-48 space-y-1 bg-gray-100 px-3 pt-12 pb-3 shadow-2xl">
             {details.details.pageDetail.map((navigation) => {
               return navigation.navigationId ? (
                 <a
-                  href={'#' + navigation.navigationId}
-                  className="text-gray-800 block py-2 px-2 text-sm hover:text-gray-600 font-bold"
+                  href={"#" + navigation.navigationId}
+                  className="block py-2 px-2 text-sm font-bold text-gray-800 hover:text-gray-600"
                   details={navigation}
                   key={navigation.id}
                 >

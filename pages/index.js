@@ -1,8 +1,8 @@
-import Head from 'next/head';
-import { renderMetaTags } from 'react-datocms';
-import { gql, GraphQLClient } from 'graphql-request';
-import PageSections from '../components/PageSections';
-import Navbar from '../components/Navbar';
+import Head from "next/head";
+import { renderMetaTags } from "react-datocms";
+import { gql, GraphQLClient } from "graphql-request";
+import PageSections from "../components/PageSections";
+import Navbar from "../components/Navbar";
 
 export default function Home({ page }) {
   return (
@@ -84,11 +84,11 @@ const query = gql`
 `;
 
 export async function getStaticProps() {
-  const endpoint = 'https://graphql.datocms.com/';
+  const endpoint = "https://graphql.datocms.com/";
   const graphQLClient = new GraphQLClient(endpoint, {
     headers: {
-      'content-type': 'application/json',
-      authorization: 'Bearer ' + process.env.DATOCMS_API_KEY,
+      "content-type": "application/json",
+      authorization: "Bearer " + process.env.DATOCMS_API_KEY,
     },
   });
   const page = await graphQLClient.request(query);
