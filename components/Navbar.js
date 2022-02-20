@@ -67,6 +67,10 @@ export default function Navbar(details) {
               );
             })}
           </div>
+          <div
+            className="grow bg-black opacity-10"
+            onClick={() => setIsOpen(!isOpen)}
+          ></div>
         </div>
       </nav>
     </div>
