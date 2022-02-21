@@ -50,8 +50,8 @@ export default function Navbar(details) {
           </button>
         </div>
         <div className={isOpen ? 'hidden' : 'flex'}>
-          <div className="flex h-screen flex-col bg-white shadow-2xl">
-            <div className="w-full space-y-1 bg-white px-3 pt-12 pb-3 md:w-48">
+          <div className="flex h-screen w-full flex-col bg-white shadow-2xl md:w-48">
+            <div className="w-full space-y-1 bg-white px-3 pt-12 pb-3">
               {details.details.pageDetail.map((navigation) => {
                 return navigation.navigationId ? (
                   <div className="rounded hover:bg-gray-100">
