@@ -50,22 +50,37 @@ export default function Navbar(details) {
           </button>
         </div>
         <div className={isOpen ? 'hidden' : 'flex'}>
-          <div className="h-screen w-full space-y-1 bg-gray-100 px-3 pt-12 pb-3 shadow-2xl md:w-48">
-            {details.details.pageDetail.map((navigation) => {
-              return navigation.navigationId ? (
+          <div className="flex h-screen flex-col bg-white shadow-2xl">
+            <div className="w-full space-y-1 bg-white px-3 pt-12 pb-3 md:w-48">
+              {details.details.pageDetail.map((navigation) => {
+                return navigation.navigationId ? (
+                  <div className="rounded hover:bg-gray-100">
+                    <a
+                      onClick={() => setIsOpen(!isOpen)}
+                      href={'#' + navigation.navigationId}
+                      className="block py-2 px-2 text-sm font-medium text-gray-500 hover:text-gray-900"
+                      details={navigation}
+                      key={navigation.id}
+                    >
+                      {navigation.navigationId}
+                    </a>
+                  </div>
+                ) : (
+                  <></>
+                );
+              })}
+            </div>
+            <div className="mt-auto bg-white p-3">
+              <div className="w-full rounded-md bg-gray-300 p-2 text-center text-xl text-gray-800 hover:bg-gray-400">
                 <a
-                  onClick={() => setIsOpen(!isOpen)}
-                  href={'#' + navigation.navigationId}
-                  className="block py-2 px-2 text-sm font-bold text-gray-800 hover:text-gray-600"
-                  details={navigation}
-                  key={navigation.id}
+                  href="https://salonbook.one/?fakeyourbeauty#/"
+                  target="_blank"
+                  rel="noreferrer"
                 >
-                  {navigation.navigationId}
+                  BESTIL TID
                 </a>
-              ) : (
-                <></>
-              );
-            })}
+              </div>
+            </div>
           </div>
           <div
             className="grow bg-black opacity-10"
