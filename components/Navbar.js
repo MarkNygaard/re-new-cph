@@ -70,7 +70,7 @@ export default function Navbar(details) {
                 );
               })}
             </div>
-            <div className="mt-auto bg-white p-3">
+            <div className="mt-auto bg-white px-3 pb-16 lg:pb-3">
               <div className="w-full rounded-md bg-gray-300 p-2 text-center text-xl text-gray-800 hover:bg-gray-400">
                 <a
                   href="https://salonbook.one/?fakeyourbeauty#/"
