@@ -6,7 +6,7 @@ import PricingSectionRecord from './PricingSectionRecord';
 import TextRecord from './TextRecord';
 import YoutubeVideoRecord from './YoutubeVideoRecord';
 
-export default function CousesSection({ details }) {
+export default function PageSection({ details }) {
   if (details.__typename === 'HeaderRecord') {
     return <HeaderRecord details={details} />;
   } else if (details.__typename === 'TextImageRecord') {

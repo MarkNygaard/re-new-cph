@@ -6,7 +6,7 @@ export default function Navbar(details) {
   const [isOpen, setIsOpen] = useState('false');
   return (
     <div>
-      <nav className="fixed  z-10 w-full">
+      <nav className="fixed z-10 w-full">
         <div className="absolute z-10">
           <button
             onClick={() => setIsOpen(!isOpen)}
@@ -54,13 +54,15 @@ export default function Navbar(details) {
             <div className="w-full space-y-1 bg-white px-3 pt-12 pb-3">
               {details.details.pageDetail.map((navigation) => {
                 return navigation.navigationId ? (
-                  <div className="rounded hover:bg-gray-100">
+                  <div
+                    key={navigation.id}
+                    className="rounded hover:bg-gray-100"
+                  >
                     <a
-                      onClick={() => setIsOpen(!isOpen)}
                       href={'#' + navigation.navigationId}
+                      onClick={() => setIsOpen(!isOpen)}
                       className="block py-2 px-2 text-sm font-medium text-gray-500 hover:text-gray-900"
                       details={navigation}
-                      key={navigation.id}
                     >
                       {navigation.navigationId}
                     </a>
@@ -71,14 +73,12 @@ export default function Navbar(details) {
               })}
             </div>
             <div className="mt-auto bg-white px-3 pb-3">
-              <div className="w-full rounded-md bg-gray-300 p-2 text-center text-xl text-gray-800 hover:bg-gray-400">
-                <a
-                  href="https://salonbook.one/?fakeyourbeauty#/"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  BESTIL TID
-                </a>
+              <div className="text-semibold w-full rounded-md bg-slate-500 p-2 text-center text-xl text-white outline-none ring-slate-300 transition duration-100 hover:bg-slate-600 focus-visible:ring active:bg-slate-700">
+                <Link href="https://salonbook.one/?fakeyourbeauty#/">
+                  <a target="_blank" rel="noreferrer">
+                    BOOK TID
+                  </a>
+                </Link>
               </div>
             </div>
           </div>

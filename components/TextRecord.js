@@ -1,5 +1,5 @@
-import React from "react";
-import { StructuredText } from "react-datocms";
+import React from 'react';
+import { StructuredText } from 'react-datocms';
 
 export default function TextRecord({ details }) {
   return (
