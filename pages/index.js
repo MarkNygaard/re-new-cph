@@ -46,9 +46,18 @@ const query = gql`
           description
           imageLocation
           image {
-            url
-            width
-            height
+            responsiveImage(imgixParams: { fit: crop, auto: format }) {
+              srcSet
+              webpSrcSet
+              sizes
+              src
+              width
+              height
+              aspectRatio
+              alt
+              title
+              base64
+            }
           }
         }
         ... on PricingSectionRecord {
@@ -66,9 +75,18 @@ const query = gql`
           __typename
           imageTitle
           image {
-            url
-            width
-            height
+            responsiveImage(imgixParams: { fit: crop, auto: format }) {
+              srcSet
+              webpSrcSet
+              sizes
+              src
+              width
+              height
+              aspectRatio
+              alt
+              title
+              base64
+            }
           }
         }
         ... on TextRecord {
@@ -84,6 +102,49 @@ const query = gql`
           id
           link {
             providerUid
+          }
+        }
+        ... on GridRecord {
+          __typename
+          id
+          title
+          columns
+          gap
+          sections {
+            ... on ImageRecord {
+              __typename
+              id
+              image {
+                responsiveImage(
+                  imgixParams: {
+                    fit: crop
+                    crop: focalpoint
+                    fill: blur
+                    ar: "1:1"
+                    minH: 384
+                    auto: format
+                  }
+                ) {
+                  srcSet
+                  webpSrcSet
+                  sizes
+                  src
+                  width
+                  height
+                  aspectRatio
+                  alt
+                  title
+                  base64
+                }
+              }
+            }
+            ... on TextRecord {
+              __typename
+              id
+              content {
+                value
+              }
+            }
           }
         }
       }

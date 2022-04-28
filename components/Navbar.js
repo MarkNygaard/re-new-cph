@@ -1,6 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
-import { useState } from 'react';
 
 export default function Navbar(details) {
   const [isOpen, setIsOpen] = useState('false');

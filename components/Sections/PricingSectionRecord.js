@@ -1,5 +1,5 @@
-import React from "react";
-import PricingCard from "../components/PricingCard";
+import React from 'react';
+import PricingCard from './PricingCard';
 
 export default function PricingSectionRecord({ details }) {
   return (

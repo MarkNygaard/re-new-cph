@@ -1,10 +1,11 @@
 import React from 'react';
-import TextImageRecord from './TextImageRecord';
-import HeaderRecord from './HeaderRecord';
-import ImageRecord from './ImageRecord';
-import PricingSectionRecord from './PricingSectionRecord';
-import TextRecord from './TextRecord';
-import YoutubeVideoRecord from './YoutubeVideoRecord';
+import TextImageRecord from './Sections/TextImageRecord';
+import HeaderRecord from './Sections/HeaderRecord';
+import ImageRecord from './Sections/ImageRecord';
+import PricingSectionRecord from './Sections/PricingSectionRecord';
+import TextRecord from './Sections/TextRecord';
+import YoutubeVideoRecord from './Sections/YoutubeVideoRecord';
+import GridRecord from './Sections/GridRecord';
 
 export default function PageSection({ details }) {
   if (details.__typename === 'HeaderRecord') {
@@ -19,6 +20,8 @@ export default function PageSection({ details }) {
     return <TextRecord details={details} />;
   } else if (details.__typename === 'YoutubeVideoRecord') {
     return <YoutubeVideoRecord details={details} />;
+  } else if (details.__typename === 'GridRecord') {
+    return <GridRecord details={details} />;
   }
   return <></>;
 }
