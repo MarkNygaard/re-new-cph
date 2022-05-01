@@ -3,8 +3,11 @@ import { StructuredText } from 'react-datocms';
 
 export default function TextRecord({ details }) {
   return (
-    <div id={details.navigationId} className="flex justify-center py-20 px-10">
-      <div className="prose prose-gray w-screen">
+    <div
+      id={details.navigationId}
+      className="align-center flex items-center justify-center p-5 overflow-hidden"
+    >
+      <div className="prose prose-gray sm:w-full">
         <StructuredText data={details.content} />
       </div>
     </div>

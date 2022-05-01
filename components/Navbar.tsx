@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 
 export default function Navbar(details) {
-  const [isOpen, setIsOpen] = useState('false');
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <div>
       <nav className="fixed z-10 w-full">
@@ -13,7 +13,7 @@ export default function Navbar(details) {
             className="mobile-menu-button inline-flex items-center justify-center p-2 text-gray-500 hover:text-gray-900 focus:outline-none focus:ring-offset-2"
           >
             <span className="sr-only">Open main menu</span>
-            {!isOpen ? (
+            {isOpen ? (
               <svg
                 className="block h-7 w-7"
                 xmlns="http://www.w3.org/2000/svg"
@@ -48,8 +48,8 @@ export default function Navbar(details) {
             )}
           </button>
         </div>
-        <div className={isOpen ? 'hidden' : 'flex'}>
-          <div className="flex h-screen w-full flex-col bg-white shadow-2xl md:w-48">
+        <div className={isOpen ? 'flex' : 'hidden'}>
+          <div className="flex h-screen w-full flex-col bg-white shadow-2xl md:w-3/12 xl:w-2/12">
             <div className="w-full space-y-1 bg-white px-3 pt-12 pb-3">
               {details.details.pageDetail.map((navigation) => {
                 return navigation.navigationId ? (
@@ -60,8 +60,7 @@ export default function Navbar(details) {
                     <a
                       href={'#' + navigation.navigationId}
                       onClick={() => setIsOpen(!isOpen)}
-                      className="block py-2 px-2 text-sm font-medium text-gray-500 hover:text-gray-900"
-                      details={navigation}
+                      className="text-md block py-2 px-2 font-medium text-gray-600 hover:text-gray-900"
                     >
                       {navigation.navigationId}
                     </a>

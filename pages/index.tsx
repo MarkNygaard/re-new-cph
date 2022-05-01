@@ -110,6 +110,8 @@ const query = gql`
           title
           columns
           gap
+          fullWidth
+          height
           sections {
             ... on ImageRecord {
               __typename
@@ -119,7 +121,6 @@ const query = gql`
                   imgixParams: {
                     fit: crop
                     crop: focalpoint
-                    fill: blur
                     ar: "1:1"
                     minH: 384
                     auto: format
