@@ -13,7 +13,7 @@ export default function GridRecord({ details }) {
             details.mobileColumns,
           [`md:grid-cols-${details.tabletColumns as String}`]:
             details.tabletColumns,
-          [`lg:grid-cols-${details.desktopColumns as String}`]:
+          [`xl:grid-cols-${details.desktopColumns as String}`]:
             details.desktopColumns,
           [`gap-${details.gap as String}`]: details.gap,
           'w-10/12': details.fullWidth === false,
@@ -28,7 +28,7 @@ export default function GridRecord({ details }) {
                   section.mobilePosition,
                 [`md:order-${section.tabletPosition as String}`]:
                   section.tabletPosition,
-                [`lg:order-${section.desktopPosition as String}`]:
+                [`xl:order-${section.desktopPosition as String}`]:
                   section.desktopPosition,
               })}
             >
