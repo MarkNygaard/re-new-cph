@@ -108,14 +108,19 @@ const query = gql`
           __typename
           id
           title
-          columns
+          mobileColumns
+          tabletColumns
+          desktopColumns
           gap
           fullWidth
           height
           sections {
-            ... on ImageRecord {
+            ... on GridImageRecord {
               __typename
               id
+              mobilePosition
+              tabletPosition
+              desktopPosition
               image {
                 responsiveImage(
                   imgixParams: {
@@ -139,9 +144,12 @@ const query = gql`
                 }
               }
             }
-            ... on TextRecord {
+            ... on GridTextRecord {
               __typename
               id
+              mobilePosition
+              tabletPosition
+              desktopPosition
               content {
                 value
               }

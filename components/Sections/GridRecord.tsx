@@ -8,17 +8,33 @@ export default function GridRecord({ details }) {
   return (
     <div className="flex justify-center">
       <div
-        className={classNames('grid grid-cols-1', {
-          [`lg:grid-cols-${details.columns as String}`]: details.columns,
+        className={classNames('grid', {
+          [`grid-cols-${details.mobileColumns as String}`]:
+            details.mobileColumns,
+          [`md:grid-cols-${details.tabletColumns as String}`]:
+            details.tabletColumns,
+          [`lg:grid-cols-${details.desktopColumns as String}`]:
+            details.desktopColumns,
           [`gap-${details.gap as String}`]: details.gap,
           'w-10/12': details.fullWidth === false,
         })}
       >
         {details.sections.map((section) => {
           return (
-            <div key={section.id} className="relative">
-              {section.__typename === 'ImageRecord' ? (
+            <div
+              key={section.id}
+              className={classNames('relative', {
+                [`order-${section.mobilePosition as String}`]:
+                  section.mobilePosition,
+                [`md:order-${section.tabletPosition as String}`]:
+                  section.tabletPosition,
+                [`lg:order-${section.desktopPosition as String}`]:
+                  section.desktopPosition,
+              })}
+            >
+              {section.__typename === 'GridImageRecord' ? (
                 <div
+                  key={section.id}
                   className={classNames(
                     'flex shrink-0 self-center overflow-hidden object-fill',
                     {
@@ -34,7 +50,7 @@ export default function GridRecord({ details }) {
                     pictureClassName="object-cover"
                   />
                 </div>
-              ) : section.__typename === 'TextRecord' ? (
+              ) : section.__typename === 'GridTextRecord' ? (
                 <div
                   className={classNames(
                     'bg-gray-300 overflow-hidden justify-center flex',
