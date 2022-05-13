@@ -1,10 +1,13 @@
-import React from "react";
+import React from 'react';
+import classNames from 'classnames';
 
 export default function HeaderRecord({ details }) {
   return (
     <div
       id={details.navigationId}
-      className="bg-white-200 flex flex-col items-center py-20 px-10"
+      className={classNames('flex flex-col items-center py-20 px-10', {
+        'bg-gray-800': details.backgroundColor === true,
+      })}
     >
       <h1 className="text-center text-7xl font-bold text-gray-900">
         {details.bigTitle}

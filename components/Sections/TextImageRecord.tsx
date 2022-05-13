@@ -1,50 +1,59 @@
 import React from 'react';
-import { Image } from 'react-datocms';
+import { Image, StructuredText } from 'react-datocms';
+import classNames from 'classnames';
 
 export default function TextImageRecord({ details }) {
-  if (details.imageLocation == 'RIGHT') {
-    return (
-      <div id={details.navigationId} className="bg-gray-800 py-20 px-10">
-        <div className="mx-auto flex max-w-6xl flex-col md:flex-row md:items-center">
-          <div className="grow p-4 md:w-[60%]">
-            <h2 className="text-4xl font-bold text-gray-200">
-              {details.smallTitle}
-              <span className="mb-10 block text-6xl font-bold text-yellow-200">
-                {details.bigTitle}
-              </span>
-            </h2>
-            <p className="text-l max-w-lg whitespace-pre-wrap text-gray-200">
-              {details.description}
-            </p>
+  return (
+    <div
+      className={classNames('py-20 px-10', {
+        'bg-gray-800': details.backgroundColor === true,
+      })}
+    >
+      <div
+        className={classNames('flex flex-col md:flex-row max-w-6xl mx-auto', {
+          'flex-col-reverse md:flex-row-reverse':
+            details.imageLocation === 'LEFT',
+        })}
+      >
+        <article
+          className={classNames('grow prose p-4 max-w-none', {
+            'prose-invert text-gray-200': details.backgroundColor === true,
+          })}
+        >
+          <StructuredText
+            data={details.content}
+            renderBlock={({ record }) => {
+              if (
+                record.__typename === 'RtImageRecord' &&
+                (record as any).image &&
+                (record as any).image?.responsiveImage
+              ) {
+                return (
+                  <div className="flex justify-center">
+                    {/* eslint-disable-next-line jsx-a11y/alt-text */}
+                    <Image
+                      data={(record.image as any).responsiveImage as any}
+                    />
+                  </div>
+                );
+              }
+            }}
+          />
+        </article>
+        {details.image?.responsiveImage ? (
+          <div className="mx-auto md:mb-auto">
+            <div
+              className={classNames('relative aspect-square h-96 grow p-4', {
+                'rounded-full': details.imageStyle === 'Round',
+                'rounded-xl': details.imageStyle === 'Rounded Corners',
+              })}
+            >
+              {/* eslint-disable-next-line jsx-a11y/alt-text */}
+              <Image data={details.image?.responsiveImage} />
+            </div>
           </div>
-          <div className="grow object-center p-4">
-            {/* eslint-disable-next-line jsx-a11y/alt-text */}
-            <Image data={details.image.responsiveImage} />
-          </div>
-        </div>
+        ) : null}
       </div>
-    );
-  } else {
-    return (
-      <div id={details.navigationId} className="bg-gray-800 py-20 px-10">
-        <div className="mx-auto flex max-w-6xl flex-col md:flex-row md:items-center">
-          <div className="grow object-center p-4">
-            {/* eslint-disable-next-line jsx-a11y/alt-text */}
-            <Image data={details.image.responsiveImage} />
-          </div>
-          <div className="grow p-4 md:w-[60%]">
-            <h2 className="text-4xl font-bold text-gray-200">
-              {details.smallTitle}
-              <span className="mb-10 block text-6xl font-bold text-yellow-200">
-                {details.bigTitle}
-              </span>
-            </h2>
-            <p className="text-l max-w-lg whitespace-pre-wrap text-gray-200">
-              {details.description}
-            </p>
-          </div>
-        </div>
-      </div>
-    );
-  }
+    </div>
+  );
 }

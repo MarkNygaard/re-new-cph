@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function PricingCard({ details }) {
   return (
-    <div className="w-full max-w-sm rounded-lg bg-gray-500 p-6">
+    <div className="w-full rounded-lg bg-gray-500 p-6">
       <div className="mb-4 text-xl font-semibold uppercase text-white">
         {details.title}
       </div>

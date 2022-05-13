@@ -6,7 +6,11 @@ import TextRecord from './TextRecord';
 
 export default function GridRecord({ details }) {
   return (
-    <div className="flex justify-center">
+    <div
+      className={classNames('flex justify-center py-20 px-10', {
+        'bg-gray-800': details.backgroundColor === true,
+      })}
+    >
       <div
         className={classNames('grid', {
           [`grid-cols-${details.mobileColumns as String}`]:

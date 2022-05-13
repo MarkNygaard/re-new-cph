@@ -31,6 +31,7 @@ const query = gql`
         ... on HeaderRecord {
           __typename
           navigationId
+          backgroundColor
           bigTitle
           smallTitle
           description
@@ -41,10 +42,40 @@ const query = gql`
         ... on TextImageRecord {
           __typename
           navigationId
-          smallTitle
-          bigTitle
-          description
+          backgroundColor
+          content {
+            value
+            blocks {
+              __typename
+              ... on RtImageRecord {
+                id
+                rtImage {
+                  responsiveImage(
+                    imgixParams: {
+                      fit: crop
+                      crop: focalpoint
+                      ar: "1:1"
+                      minH: 384
+                      auto: format
+                    }
+                  ) {
+                    srcSet
+                    webpSrcSet
+                    sizes
+                    src
+                    width
+                    height
+                    aspectRatio
+                    alt
+                    title
+                    base64
+                  }
+                }
+              }
+            }
+          }
           imageLocation
+          imageStyle
           image {
             responsiveImage(imgixParams: { fit: crop, auto: format }) {
               srcSet
@@ -63,16 +94,29 @@ const query = gql`
         ... on PricingSectionRecord {
           __typename
           navigationId
+          backgroundColor
           title
-          pricingCard {
-            title
-            price
-            buttonText
-            description
+          pricingModules {
+            ... on TableRecord {
+              __typename
+              id
+              title
+              table
+            }
+            ... on PricingCardRecord {
+              __typename
+              id
+              title
+              price
+              buttonText
+              description
+            }
           }
         }
         ... on ImageRecord {
           __typename
+          navigationId
+          backgroundColor
           imageTitle
           image {
             responsiveImage(imgixParams: { fit: crop, auto: format }) {
@@ -92,13 +136,43 @@ const query = gql`
         ... on TextRecord {
           __typename
           navigationId
+          backgroundColor
           content {
             value
+            blocks {
+              __typename
+              ... on RtImageRecord {
+                id
+                rtImage {
+                  responsiveImage(
+                    imgixParams: {
+                      fit: crop
+                      crop: focalpoint
+                      ar: "1:1"
+                      minH: 384
+                      auto: format
+                    }
+                  ) {
+                    srcSet
+                    webpSrcSet
+                    sizes
+                    src
+                    width
+                    height
+                    aspectRatio
+                    alt
+                    title
+                    base64
+                  }
+                }
+              }
+            }
           }
         }
         ... on YoutubeVideoRecord {
           __typename
           navigationId
+          backgroundColor
           id
           link {
             providerUid
@@ -106,6 +180,8 @@ const query = gql`
         }
         ... on GridRecord {
           __typename
+          navigationId
+          backgroundColor
           id
           title
           mobileColumns
@@ -152,6 +228,34 @@ const query = gql`
               desktopPosition
               content {
                 value
+                blocks {
+                  __typename
+                  ... on RtImageRecord {
+                    id
+                    rtImage {
+                      responsiveImage(
+                        imgixParams: {
+                          fit: crop
+                          crop: focalpoint
+                          ar: "1:1"
+                          minH: 384
+                          auto: format
+                        }
+                      ) {
+                        srcSet
+                        webpSrcSet
+                        sizes
+                        src
+                        width
+                        height
+                        aspectRatio
+                        alt
+                        title
+                        base64
+                      }
+                    }
+                  }
+                }
               }
             }
           }
