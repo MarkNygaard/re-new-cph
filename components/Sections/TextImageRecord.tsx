@@ -39,7 +39,7 @@ export default function TextImageRecord({ details }) {
         })}
       >
         <article
-          className={classNames('grow prose py-4 md:px-4 max-w-none', {
+          className={classNames('grow prose py-4 px-3 md:px-4 max-w-none', {
             'prose-invert text-gray-200': details.backgroundColor === true,
           })}
         >

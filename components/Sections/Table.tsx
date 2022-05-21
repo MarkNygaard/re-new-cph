@@ -2,7 +2,7 @@ import classNames from 'classnames';
 
 export function Table(props) {
   return (
-    <div className="w-full overflow-hidden px-2">
+    <div className="w-full overflow-hidden md:px-2">
       <div
         className={classNames(
           'px-2  text-lg font-bold border-b-[1px] w-full mb-1',

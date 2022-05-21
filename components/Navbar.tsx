@@ -56,7 +56,9 @@ export default function Navbar(details) {
                 ? {
                     x: 0,
                     opacity: 1,
-                    transition: { x: { type: 'spring', bounce: 0 } },
+                    transition: {
+                      x: { type: 'spring', bounce: 0, duration: 0.4 },
+                    },
                   }
                 : { x: '-280px', opacity: 0 }
             }
