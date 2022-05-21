@@ -28,7 +28,7 @@ export default function GridRecord({ details }) {
     <div
       ref={ref}
       id={details.navigationId}
-      className={classNames('flex justify-center py-20 px-10', {
+      className={classNames('flex justify-center py-20 px-0 md:px-10', {
         'bg-gray-800': details.backgroundColor === true,
       })}
     >
@@ -43,7 +43,7 @@ export default function GridRecord({ details }) {
           [`xl:grid-cols-${details.desktopColumns as String}`]:
             details.desktopColumns,
           [`gap-${details.gap as String}`]: details.gap,
-          'w-10/12': details.fullWidth === false,
+          'md:w-10/12': details.fullWidth === false,
         })}
       >
         {details.sections.map((section) => {

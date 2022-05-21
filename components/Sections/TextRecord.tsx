@@ -27,7 +27,7 @@ export default function TextRecord({ details }) {
       ref={ref}
       id={details.navigationId}
       className={classNames(
-        'py-20 px-10 align-center flex items-center justify-center overflow-hidden',
+        'py-20 px-2 md:px-10 align-center flex items-center justify-center overflow-hidden',
         {
           'bg-gray-800': details.backgroundColor === true,
         }

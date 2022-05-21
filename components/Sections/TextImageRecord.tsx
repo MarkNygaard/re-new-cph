@@ -26,7 +26,7 @@ export default function TextImageRecord({ details }) {
     <div
       ref={ref}
       id={details.navigationId}
-      className={classNames('py-20 px-10', {
+      className={classNames('py-20 px-2 md:px-10', {
         'bg-gray-800': details.backgroundColor === true,
       })}
     >
@@ -39,7 +39,7 @@ export default function TextImageRecord({ details }) {
         })}
       >
         <article
-          className={classNames('grow prose p-4 max-w-none', {
+          className={classNames('grow prose py-4 md:px-4 max-w-none', {
             'prose-invert text-gray-200': details.backgroundColor === true,
           })}
         >
@@ -66,10 +66,13 @@ export default function TextImageRecord({ details }) {
         {details.image?.responsiveImage ? (
           <div className="mx-auto md:mb-auto">
             <div
-              className={classNames('relative aspect-square h-96 grow p-4', {
-                'rounded-full': details.imageStyle === 'Round',
-                'rounded-xl': details.imageStyle === 'Rounded Corners',
-              })}
+              className={classNames(
+                'relative aspect-square md:h-96 grow md:p-4',
+                {
+                  'rounded-full': details.imageStyle === 'Round',
+                  'rounded-xl': details.imageStyle === 'Rounded Corners',
+                }
+              )}
             >
               {/* eslint-disable-next-line jsx-a11y/alt-text */}
               <Image data={details.image?.responsiveImage} />

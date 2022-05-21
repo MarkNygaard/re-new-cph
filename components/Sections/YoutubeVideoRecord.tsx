@@ -26,7 +26,7 @@ export default function YoutubeVideoRecord({ details }) {
     <div
       ref={ref}
       id={details.navigationId}
-      className={classNames('flex justify-center py-10', {
+      className={classNames('flex justify-center px-2 md:px-10 py-10', {
         'bg-gray-800': details.backgroundColor === true,
         'bg-gray-200': details.backgroundColor === false,
       })}
@@ -34,10 +34,10 @@ export default function YoutubeVideoRecord({ details }) {
       <motion.div
         initial={details.fadeIn ? { opacity: 0 } : { opacity: 1 }}
         animate={details.fadeIn ? animation : { opacity: 1 }}
-        className="mx-auto w-full max-w-4xl p-8"
+        className="mx-auto w-full max-w-4xl py-8"
       >
         <div
-          className={classNames('shadow-x1 rounded-lg  p-2 sm:p-4', {
+          className={classNames('shadow-x1 rounded-lg  p-2 md:p-4', {
             'bg-gray-200': details.backgroundColor === true,
             'bg-white': details.backgroundColor === false,
           })}
