@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 
 export default function Navbar(details) {
   const [isOpen, setIsOpen] = useState(false);
@@ -49,7 +50,18 @@ export default function Navbar(details) {
           </button>
         </div>
         <div className={isOpen ? 'flex' : 'hidden'}>
-          <div className="flex h-screen w-full flex-col bg-white shadow-2xl md:w-3/12 xl:w-2/12">
+          <motion.div
+            animate={
+              isOpen
+                ? {
+                    x: 0,
+                    opacity: 1,
+                    transition: { x: { type: 'spring', bounce: 0 } },
+                  }
+                : { x: '-280px', opacity: 0 }
+            }
+            className="flex h-screen w-full flex-col bg-white shadow-2xl md:w-3/12 xl:w-2/12"
+          >
             <div className="w-full space-y-1 bg-white px-3 pt-12 pb-3">
               {details.details.pageDetail.map((navigation) => {
                 return navigation.navigationId ? (
@@ -65,9 +77,7 @@ export default function Navbar(details) {
                       {navigation.navigationId}
                     </a>
                   </div>
-                ) : (
-                  <></>
-                );
+                ) : null;
               })}
             </div>
             <div className="mt-auto bg-white px-3 pb-3">
@@ -79,11 +89,20 @@ export default function Navbar(details) {
                 </Link>
               </div>
             </div>
-          </div>
-          <div
+          </motion.div>
+          <motion.div
+            animate={
+              isOpen
+                ? {
+                    x: 0,
+                    opacity: 0.1,
+                    transition: { delay: 0.5 },
+                  }
+                : { opacity: 0 }
+            }
             className="grow bg-black opacity-10"
             onClick={() => setIsOpen(!isOpen)}
-          ></div>
+          ></motion.div>
         </div>
       </nav>
     </div>

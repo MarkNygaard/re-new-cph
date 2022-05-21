@@ -1,17 +1,39 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PricingCard from './PricingCard';
 import { Table } from './Table';
 import classNames from 'classnames';
+import { motion, useAnimation } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 
 export default function PricingSectionRecord({ details }) {
+  const { ref, inView } = useInView({
+    threshold: 0.4,
+  });
+  const animation = useAnimation();
+
+  useEffect(() => {
+    if (inView) {
+      animation.start({
+        y: 0,
+        opacity: 1,
+        transition: {
+          duration: 0.5,
+        },
+      });
+    }
+  }, [inView, animation]);
+
   return (
     <div
+      ref={ref}
       id={details.navigationId}
       className={classNames('py-20 px-10 justify-center flex', {
         'bg-gray-800': details.backgroundColor === true,
       })}
     >
-      <div
+      <motion.div
+        initial={details.fadeIn ? { opacity: 0 } : { opacity: 1 }}
+        animate={details.fadeIn ? animation : { opacity: 1 }}
         className={classNames('max-w-6xl w-full p-6', {
           'bg-gray-800': details.backgroundColor === true,
         })}
@@ -39,7 +61,7 @@ export default function PricingSectionRecord({ details }) {
             )}
           </div>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 }

@@ -1,17 +1,40 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import classNames from 'classnames';
 import type { FileField } from 'lib/graphql';
 import { Image } from 'react-datocms';
 import TextRecord from './TextRecord';
+import { motion, useAnimation } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 
 export default function GridRecord({ details }) {
+  const { ref, inView } = useInView({
+    threshold: 0.4,
+  });
+  const animation = useAnimation();
+
+  useEffect(() => {
+    if (inView) {
+      animation.start({
+        y: 0,
+        opacity: 1,
+        transition: {
+          duration: 0.5,
+        },
+      });
+    }
+  }, [inView, animation]);
+
   return (
     <div
+      ref={ref}
+      id={details.navigationId}
       className={classNames('flex justify-center py-20 px-10', {
         'bg-gray-800': details.backgroundColor === true,
       })}
     >
-      <div
+      <motion.div
+        initial={details.fadeIn ? { opacity: 0 } : { opacity: 1 }}
+        animate={details.fadeIn ? animation : { opacity: 1 }}
         className={classNames('grid', {
           [`grid-cols-${details.mobileColumns as String}`]:
             details.mobileColumns,
@@ -73,7 +96,7 @@ export default function GridRecord({ details }) {
             </div>
           );
         })}
-      </div>
+      </motion.div>
     </div>
   );
 }

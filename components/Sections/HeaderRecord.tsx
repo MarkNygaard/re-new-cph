@@ -1,5 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
+import { motion } from 'framer-motion';
 
 export default function HeaderRecord({ details }) {
   return (
@@ -16,14 +17,14 @@ export default function HeaderRecord({ details }) {
         </span>
       </h1>
       <p className="max-w-lg text-lg text-gray-500">{details.description}</p>
-      <a
-        href={details.buttonLink}
-        target="_blank"
-        rel="noreferrer"
+      <motion.button
+        whileHover={{ scale: 1.1 }}
         className="mt-8 rounded-md bg-gray-300 py-3 px-4 text-xl text-gray-800 hover:bg-gray-400"
       >
-        {details.buttonText}
-      </a>
+        <a href={details.buttonLink} target="_blank" rel="noreferrer">
+          {details.buttonText}
+        </a>
+      </motion.button>
     </div>
   );
 }

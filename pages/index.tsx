@@ -3,17 +3,20 @@ import { renderMetaTags } from 'react-datocms';
 import { gql, GraphQLClient } from 'graphql-request';
 import PageSections from '../components/PageSections';
 import Navbar from '../components/Navbar';
+import { AnimatePresence } from 'framer-motion';
 
 export default function Home({ page }) {
   return (
-    <div>
+    <>
       <Head>{renderMetaTags(page.seo)}</Head>
       <Navbar details={page} />
 
-      {page.pageDetail.map((section) => (
-        <PageSections details={section} key={section.id} />
-      ))}
-    </div>
+      <AnimatePresence>
+        {page.pageDetail.map((section, i) => (
+          <PageSections details={section} key={i} />
+        ))}
+      </AnimatePresence>
+    </>
   );
 }
 
@@ -43,6 +46,7 @@ const query = gql`
           __typename
           navigationId
           backgroundColor
+          fadeIn
           content {
             value
             blocks {
@@ -95,6 +99,7 @@ const query = gql`
           __typename
           navigationId
           backgroundColor
+          fadeIn
           title
           pricingModules {
             ... on TableRecord {
@@ -117,6 +122,7 @@ const query = gql`
           __typename
           navigationId
           backgroundColor
+          fadeIn
           imageTitle
           image {
             responsiveImage(imgixParams: { fit: crop, auto: format }) {
@@ -137,6 +143,7 @@ const query = gql`
           __typename
           navigationId
           backgroundColor
+          fadeIn
           content {
             value
             blocks {
@@ -173,6 +180,7 @@ const query = gql`
           __typename
           navigationId
           backgroundColor
+          fadeIn
           id
           link {
             providerUid
@@ -182,6 +190,7 @@ const query = gql`
           __typename
           navigationId
           backgroundColor
+          fadeIn
           id
           title
           mobileColumns

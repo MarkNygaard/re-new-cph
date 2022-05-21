@@ -1,15 +1,38 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Image, StructuredText } from 'react-datocms';
 import classNames from 'classnames';
+import { motion, useAnimation } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 
 export default function TextImageRecord({ details }) {
+  const { ref, inView } = useInView({
+    threshold: 0.4,
+  });
+  const animation = useAnimation();
+
+  useEffect(() => {
+    if (inView) {
+      animation.start({
+        y: 0,
+        opacity: 1,
+        transition: {
+          duration: 0.5,
+        },
+      });
+    }
+  }, [inView, animation]);
+
   return (
     <div
+      ref={ref}
+      id={details.navigationId}
       className={classNames('py-20 px-10', {
         'bg-gray-800': details.backgroundColor === true,
       })}
     >
-      <div
+      <motion.div
+        initial={details.fadeIn ? { opacity: 0 } : { opacity: 1 }}
+        animate={details.fadeIn ? animation : { opacity: 1 }}
         className={classNames('flex flex-col md:flex-row max-w-6xl mx-auto', {
           'flex-col-reverse md:flex-row-reverse':
             details.imageLocation === 'LEFT',
@@ -53,7 +76,7 @@ export default function TextImageRecord({ details }) {
             </div>
           </div>
         ) : null}
-      </div>
+      </motion.div>
     </div>
   );
 }
