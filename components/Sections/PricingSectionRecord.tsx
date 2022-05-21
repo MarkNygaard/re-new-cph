@@ -34,12 +34,12 @@ export default function PricingSectionRecord({ details }) {
       <motion.div
         initial={details.fadeIn ? { opacity: 0 } : { opacity: 1 }}
         animate={details.fadeIn ? animation : { opacity: 1 }}
-        className={classNames('max-w-6xl w-full md:p-6', {
+        className={classNames('max-w-6xl w-full', {
           'bg-gray-800': details.backgroundColor === true,
         })}
       >
         <h1
-          className={classNames('mb-20 mt-5 text-center text-6xl font-bold', {
+          className={classNames('mb-20 text-center text-6xl font-bold', {
             'text-white': details.backgroundColor === true,
           })}
         >
