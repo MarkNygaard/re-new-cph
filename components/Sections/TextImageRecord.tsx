@@ -3,6 +3,7 @@ import { Image, StructuredText } from 'react-datocms';
 import classNames from 'classnames';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import MainHeading from 'components/MainHeading';
 
 export default function TextImageRecord({ details }) {
   const { ref, inView } = useInView({
@@ -59,7 +60,10 @@ export default function TextImageRecord({ details }) {
                     />
                   </div>
                 );
+              } else if (record.__typename === 'CustomHeadingRecord') {
+                return <MainHeading record={record}></MainHeading>;
               }
+              return null;
             }}
           />
         </article>
@@ -67,7 +71,7 @@ export default function TextImageRecord({ details }) {
           <div className="mx-auto md:mb-auto">
             <div
               className={classNames(
-                'relative aspect-square md:h-96 grow md:p-4',
+                'relative aspect-square md:h-96 grow px-3 md:p-4',
                 {
                   'rounded-full': details.imageStyle === 'Round',
                   'rounded-xl': details.imageStyle === 'Rounded Corners',

@@ -3,6 +3,7 @@ import { StructuredText, Image } from 'react-datocms';
 import classNames from 'classnames';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import MainHeading from 'components/MainHeading';
 
 export default function TextRecord({ details }) {
   const { ref, inView } = useInView({
@@ -57,7 +58,10 @@ export default function TextRecord({ details }) {
                   />
                 </div>
               );
+            } else if (record.__typename === 'CustomHeadingRecord') {
+              return <MainHeading record={record}></MainHeading>;
             }
+            return null;
           }}
         />
       </motion.div>

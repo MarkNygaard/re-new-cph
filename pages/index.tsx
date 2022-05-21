@@ -76,6 +76,11 @@ const query = gql`
                   }
                 }
               }
+              ... on CustomHeadingRecord {
+                id
+                title
+                subtitle
+              }
             }
           }
           imageLocation
@@ -172,6 +177,11 @@ const query = gql`
                     base64
                   }
                 }
+              }
+              ... on CustomHeadingRecord {
+                id
+                title
+                subtitle
               }
             }
           }
