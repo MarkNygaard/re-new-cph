@@ -63,7 +63,7 @@ export default function GridRecord({ details }) {
                 <div
                   key={section.id}
                   className={classNames(
-                    'flex shrink-0 self-center overflow-hidden object-fill',
+                    'relative flex shrink-0 self-center overflow-hidden object-fill',
                     {
                       'h-52': details.height === 'Small',
                       'h-96': details.height === 'Medium',
@@ -74,7 +74,9 @@ export default function GridRecord({ details }) {
                   {/* eslint-disable-next-line jsx-a11y/alt-text */}
                   <Image
                     data={(section.image as FileField).responsiveImage as any}
-                    pictureClassName="object-cover"
+                    layout="fill"
+                    objectFit="cover"
+                    objectPosition="50% 50%"
                   />
                 </div>
               ) : section.__typename === 'GridTextRecord' ? (

@@ -551,10 +551,10 @@ damerau-levenshtein@^1.0.7:
   resolved "https://registry.yarnpkg.com/damerau-levenshtein/-/damerau-levenshtein-1.0.8.tgz#b43d286ccbd36bc5b2f7ed41caf2d0aba1f8a6e7"
   integrity sha512-sdQSFB7+llfUcQHUQO3+B8ERRj0Oa4w9POWMI/puGtuf7gFywGmkaLCElnudfTiKZV+NvHqL0ifzdrI8Ro7ESA==
 
-datocms-listen@^0.1.7:
-  version "0.1.8"
-  resolved "https://registry.yarnpkg.com/datocms-listen/-/datocms-listen-0.1.8.tgz#167a08492ec7b0e4bc2bc3b8e9b7df98e0f118ac"
-  integrity sha512-oyf7vBPTdqRyf0OTgK8SUmmv7FGgqacJeX4KqP4VhJ8kBrToog7aMRudwdA+iHFS8fuOeiDDH/SMg0PPqNP3JQ==
+datocms-listen@^0.1.9:
+  version "0.1.10"
+  resolved "https://registry.yarnpkg.com/datocms-listen/-/datocms-listen-0.1.10.tgz#6d8c2b239478896caea7731493159e3ca98b23ee"
+  integrity sha512-gaQ69vMC+shRsj6fFo3xEMcUpxtLElJIT0HBTaQHzy0nk1bCeWbwgzYzI8r1FLukD6KV4oFm/YGrGBNbnwOovg==
 
 datocms-structured-text-generic-html-renderer@^2.0.1:
   version "2.0.4"
@@ -1791,15 +1791,16 @@ quick-lru@^5.1.1:
   resolved "https://registry.yarnpkg.com/quick-lru/-/quick-lru-5.1.1.tgz#366493e6b3e42a3a6885e2e99d18f80fb7a8c932"
   integrity sha512-WuyALRjWPDGtt/wzJiadO5AXY+8hZ80hVpe6MyivgraREW751X3SbhRvG3eLKOYN+8VEvqLcf3wdnt44Z4S4SA==
 
-react-datocms@^3.0.12:
-  version "3.0.12"
-  resolved "https://registry.yarnpkg.com/react-datocms/-/react-datocms-3.0.12.tgz#d0cccb0bf0171569cb2f48e86a420fca4a4fb790"
-  integrity sha512-GbIHncVmgYok5eYAP2ChhyJ+29jzNTK+Qlp6RaVW4waDfJ3bqzTpYBB5jJsNHbIrEVuXUiblrTLKITnp/eyJbw==
+react-datocms@^3.1.3:
+  version "3.1.3"
+  resolved "https://registry.yarnpkg.com/react-datocms/-/react-datocms-3.1.3.tgz#f8e52eecbd7a396dffa388abfca92fbb36cc1bcb"
+  integrity sha512-rHSV9ITtJIWx6AivYUJPGWuAq4tKEM7N40qpkdIgvovIroeTENwzbnQsJDuovYPksUAD4uz9vIppmuQWua+EaQ==
   dependencies:
-    datocms-listen "^0.1.7"
+    datocms-listen "^0.1.9"
     datocms-structured-text-generic-html-renderer "^2.0.1"
     datocms-structured-text-utils "^2.0.1"
     react-intersection-observer "^8.33.1"
+    react-string-replace "^1.1.0"
     universal-base64 "^2.1.0"
     use-deep-compare-effect "^1.6.1"
 
@@ -1830,6 +1831,11 @@ react-lite-youtube-embed@^2.2.1:
   version "2.2.2"
   resolved "https://registry.yarnpkg.com/react-lite-youtube-embed/-/react-lite-youtube-embed-2.2.2.tgz#d61fce061ef730ac74072b82eb910021b8a9a7d1"
   integrity sha512-1NqbNDcunRcB/9G9upXM59jyLdEUXy3Xk/XJ+JdIdT04qNTj5Xi8enR1BzMdowLsrDv8yW5qge2ob3gb22Qfnw==
+
+react-string-replace@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/react-string-replace/-/react-string-replace-1.1.0.tgz#a3f7b458e697e77d70b0ea663caf38ab38f7cc17"
+  integrity sha512-N6RalSDFGbOHs0IJi1H611WbZsvk3ZT47Jl2JEXFbiS3kTwsdCYij70Keo/tWtLy7sfhDsYm7CwNM/WmjXIaMw==
 
 react@18.0.0:
   version "18.0.0"
